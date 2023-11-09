@@ -3,6 +3,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Germania+One">
+
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5QKCKQLMGD"></script>
 <script>
@@ -66,13 +68,15 @@
         }
 
         .button {
+          opacity: 0.9;
+
             font-size: 20px;
             font-family: 'Rockwell', cursive;
             display: inline-flex;
             justify-content: center;
             align-items: center;
             padding: 10px 20px;
-            background-color: #FFC30B;
+            background-color: #fed864;
             color: #000000;
             text-decoration: none;
             font-weight: bold; /* Make the buttons bold */
@@ -91,13 +95,14 @@
             border: 2px solid #FFC30B;
         }
         .button2 {
+          opacity: 0.9;
             font-size: 20px;
             font-family: 'Rockwell', cursive;
             display: inline-flex;
             justify-content: center;
             align-items: center;
             padding: 10px 20px;
-            background-color: #FFC30B;
+            background-color: #fed864;
             color: #000000;
             text-decoration: none;
             font-weight: bold; /* Make the buttons bold */
@@ -129,19 +134,22 @@
 <body>
   <img src="globe.png" alt="Globe Image" class="globe-image" />
 
-  <h1 style="font-size: 60px;">chetantyagi.me</h1>
+  <h1 style="font-size: 80px; font-family: 'Germania One', cursive; ">chetantyagi.me</h1>
   <div class="container">
     <div class="line">
       <div class="left-panel">
-        <div class="heading" style="margin-bottom: 5cqi;">Map Master</div>
+        <div class="heading" style="margin-bottom: 2cqi;">Map Master</div>
+        <button class="button" onclick="window.location.href='streetview.html'">Street Mode (Flagship)</button>
         <button class="button" onclick="window.location.href='sp.html'">Play Classic Singleplayer</button>
         <button class="button" onclick="window.location.href='sp_hard.html'">Play Hardmode Singleplayer</button>
-        <button class="button" onclick="window.location.href='streetview.html'">Street Mode (Flagship)</button>
         <button class="button" onclick="window.location.href=''">Multiplayer (In Development)</button>
       </div>
       <div class="right-panel">
-        <div class="heading" style="margin-bottom: 50px; top:90px;">The Portfolio</div>
-        <button class="button2" onclick="window.location.href='portfolio.html'">Portfolio</button>
+        <div class="heading" style="margin-bottom:2cqi;">The Portfolio and Contacts</div>
+        <button class="button" onclick="window.location.href='portfolio.html'">Portfolio</button>
+        <button class="button" onclick="window.location.href='https://github.com/chetanty'">Github</button>
+        <button class="button" onclick="window.location.href='https://www.linkedin.com/in/chetantyagi06/'">LinkedIn</button>
+        <button class="button" onclick="window.location.href='mailto:ctyagy06@gmail.com'">Contact with Mail</button>
       </div>
     </div>
   </div>
