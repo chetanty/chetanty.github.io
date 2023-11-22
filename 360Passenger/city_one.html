@@ -39,8 +39,25 @@
             <!-- Set up the sky using the preloaded image -->
             <a-sky src="#london" rotation="0 90 0"></a-sky>
 
-            <!-- Set up the camera for VR -->
-            <a-camera position="0 1.6 0" user-height="1.6" look-controls="reverseMouseDrag: true"></a-camera>
+            <!-- Set up the camera for VR --><a-entity rotation="0 180 0">
+    <!-- Set up the sky using the preloaded image -->
+    <a-sky src="#london" rotation="0 90 0"></a-sky>
+
+    <!-- Set up the camera for VR -->
+    <a-camera position="0 1.6 0" user-height="1.6" look-controls="reverseMouseDrag: true"></a-camera>
+    
+
+    <!-- Add a 3D Earth model with a marker for London -->
+    <a-globe radius="1" position="0 1 0" z-IN>
+        <a-entity
+            position="0.5 0.1 -0.2"
+            rotation="0 45 0"
+            text="value: London; align: center; color: white; wrapCount: 10;">
+        </a-entity>
+    </a-globe>
+</a-entity>
+
+            <a-camera position="0 1.6 0" user-height="1.6" look-controls="reverseMouseDrag: true" rotation="0 180 0"></a-camera>
 
             <!-- Add a 3D Earth model with a marker for London -->
             <a-globe radius="1" position="0 1 0" z-IN>
