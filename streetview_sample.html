@@ -2,24 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mapillary Street View of Berlin</title>
-    <script src="https://unpkg.com/mapillary-js@4.1.1/dist/mapillary.js"></script>
-    <link
-      href="https://unpkg.com/mapillary-js@4.1.1/dist/mapillary.css"
-      rel="stylesheet"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Image Viewer</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 </head>
 <body>
-    <div id="mly" style="width: 400px; height: 300px;"></div>
-
-    <script>
-var { Viewer } = mapillary;
-
-var viewer = new Viewer({
-  accessToken: "MLY|6567123976742596|e9835e8db194154123b48d4979d5927c",
-  container: "mly",
-  imageId: "1067023661329016",
-});
-</script>
+    <a-scene vr-mode-ui="enabled: false">
+        <a-sky src="london.jpg" rotation="0 90 0"></a-sky>
+        <a-camera look-controls="reverseMouseDrag: true"></a-camera>
+    </a-scene>
 </body>
 </html>
