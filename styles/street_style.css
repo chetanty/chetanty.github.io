@@ -42,7 +42,7 @@
         font-size: 19px;
         font-family: "Rockwell", serif;
       }
-      
+
       .text-center {
         position: fixed;
         display: flex; /* Use flexbox */
@@ -72,7 +72,7 @@
       display: inline-flex;
       justify-content: center; /* Center the text horizontally */
       align-items: center; /* Center the text vertically */
-      padding: 10px 20px;
+      padding: 10px 10px;
       background-color: #FFC30B;
       color: #000000; /* Black text color */
       text-decoration: none;
@@ -80,14 +80,51 @@
       border: 2px solid #000000; /* Black border */
       border-radius: 5px;
       height: 50px;
+      position: fixed;
+      color: rgb(1, 0, 0);
+      text-align: center;
+
+      top: 10px;
+      left: 10px;
+      border-radius: 5px;
     }
     
+
     
     .custom-button:hover {
       background-color: #000000; /* Black background on hover */
       color: #FFC30B; /* Yellow text color on hover */
       border: 2px solid #FFC30B; /* Yellow border on hover */
     }
+    .container {
+      position: relative; /* Container needs a position for absolute positioning to work */
+    }
+    
+    .custom-image {
+      position: absolute; /* Use absolute positioning */
+      width: 50px;
+      height: 50px;
+      pointer-events: none;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    /* Adjust top and left values as needed */
+    #image1 {
+      top: 240px;
+      left: 10px;
+    }
+    
+    #image2 {
+      top: 240px;
+      left: 70px;
+    }
+    
+    #image3 {
+      top: 240px;
+      left: 130px;
+    }
+    
     
     
     .button {
