@@ -63,6 +63,7 @@ map.on('click', function(event) {
       icon: L.icon({
         iconUrl: '../styles/assets/select_marker.png',
         iconSize: [65, 65], // Adjust the size as needed
+        iconAnchor: [32.5, 65] // Set the anchor point to the bottom center of the icon
       })
     }).addTo(map);
   } else {
