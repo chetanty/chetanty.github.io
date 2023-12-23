@@ -18,7 +18,6 @@ let guessedCities = {};
 
 let playerScore = 0;
 let marker = null;
-let circle = null;
 let initialCity = '';
 let initialCountry = '';
 let initialCapital = '';
@@ -59,8 +58,13 @@ function startTimer() {
 // Add click event listener to map
 map.on('click', function(event) {
   if (marker === null) {
-    // Add marker at clicked location
-    marker = L.marker(event.latlng).addTo(map);
+    // Add marker at clicked location with custom icon
+    marker = L.marker(event.latlng, {
+      icon: L.icon({
+        iconUrl: '../styles/assets/select_marker.png',
+        iconSize: [65, 65], // Adjust the size as needed
+      })
+    }).addTo(map);
   } else {
     // Move marker to clicked location
     marker.setLatLng(event.latlng);
@@ -104,10 +108,24 @@ async function updateHighScoreList() {
 // Handle guess button click event
 const guessButton = document.getElementById('guess-button');
 const showCoordinatesCheckbox = document.getElementById('show-coordinates');
+let guessCount = 0; // Initialize guess count
 guessButton.addEventListener('click', async function () {
   if (marker === null) {
     return;
   }
+  if (guessCount >= 3) { // Check if guess count exceeds limit
+    
+    const arrowIcon = L.icon({
+      iconUrl: '../styles/assets/result_marker.png', // Replace with the path to your select_marker.png
+      iconSize: [65, 65], // Adjust the size of the arrow icon
+    });
+    const arrowMarker = L.marker([initialLat, initialLng], { icon: arrowIcon }).addTo(map); // Place arrow marker on the map to point to the answer
+    return;
+  }
+  guessCount++; // Increment guess count
+
+  // Remove the arrowMarker if it exists
+
   const guessLat = marker.getLatLng().lat.toFixed(4);
   const guessLng = marker.getLatLng().lng.toFixed(4);
 
@@ -121,7 +139,7 @@ guessButton.addEventListener('click', async function () {
 
   // Use Nominatim API to retrieve the nearest city, country, and capital to the marker
   const nominatimUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${guessLat}&lon=${guessLng}`;
-  
+
   try {
     const response = await fetch(nominatimUrl);
     const data = await response.json();
@@ -129,15 +147,15 @@ guessButton.addEventListener('click', async function () {
     const guessCity = data.address.city || data.address.town || data.address.village || data.address.hamlet || 'Unknown';
     const guessCountry = data.address.country || 'Unknown';
     const guessDistance = Math.round(marker.getLatLng().distanceTo([initialLat, initialLng]));
-    
+
     const resultText = [];
-      for (const guessedCity in guessedCities) {
-    const distance = marker.getLatLng().distanceTo(guessedCities[guessedCity].getLatLng());
-    if (distance <= 50000) {
-      alert('You are too close to a previously guessed city. Try another location.');
-      return;
+    for (const guessedCity in guessedCities) {
+      const distance = marker.getLatLng().distanceTo(guessedCities[guessedCity].getLatLng());
+      if (distance <= 50000) {
+        alert('You are too close to a previously guessed city. Try another location.');
+        return;
+      }
     }
-  }
     if (guessDistance < 50000) {
       endTime = Date.now();
       const timeTaken = (endTime - startTime) / 1000;
@@ -150,7 +168,7 @@ guessButton.addEventListener('click', async function () {
       resultText.push(`Reload the page to start a new round.`);
       const playerScoreElement = document.getElementById('player-score');
       playerScoreElement.textContent = playerScore;
-    }else {
+    } else {
       resultText.push(`<strong>Distance from answer:</strong> ${guessDistance / 1000} kilometers. <strong>Your Guess:</strong> ${guessCity}, ${guessCountry}.`);
       if (initialLat.toFixed(4) !== 0.0000 && initialCity !== "" && initialCity !== "Unknown") {
       } else {
@@ -180,17 +198,6 @@ guessButton.addEventListener('click', async function () {
     }
 
     // Remove previous circle if it exists
-    if (circle !== null) {
-      map.removeLayer(circle);
-    }
-
-    // Add new circle at the marker location if the initial city is not "Unknown"
-    if (initialCity !== 'Unknown') {
-      circle= L.circle(marker.getLatLng(), {
-        color: 'red',
-        radius: 1000,
-      }).addTo(map);
-    }
 
     const resultDiv = document.getElementById('result');
     resultDiv.innerHTML = resultText.join('<br>');
@@ -409,8 +416,19 @@ saveScoreButton.addEventListener('click', async () => {
 
 
 function startNewGame() {
-  
+// Remove all markers from the map
+map.eachLayer(function (layer) {
+  if (layer instanceof L.Marker) {
+    map.removeLayer(layer);
+  }
+});
 
+// Remove all images from the map
+const imageLayers = map.getPanes().overlayPane.getElementsByTagName('img');
+for (let i = imageLayers.length - 1; i >= 0; i--) {
+  map.getPanes().overlayPane.removeChild(imageLayers[i]);
+}
+  guessCount=0
 startTime = 0;
 endTime = 0;
 stopTimer();
@@ -426,22 +444,14 @@ if (marker !== null) {
   map.removeLayer(marker);
   marker = null;
 }
-if (circle !== null) {
-  map.removeLayer(circle);
-  circle = null;
-}
+
 var mlyContainer = document.getElementById('mly');
 if (mlyContainer) {
   mlyContainer.innerHTML = ''; // Remove the content inside the Mapillary container
 }
 
-// ... (existing code)
 
-
-
-// Reset game variables
 marker = null;
-circle = null;
 initialCity = '';
 initialCountry = '';
 initialCapital = '';
@@ -463,10 +473,7 @@ if (marker !== null) {
   map.removeLayer(marker);
   marker = null;
 }
-if (circle !== null) {
-  map.removeLayer(circle);
-  circle = null;
-}
+
 const helloDiv = document.querySelector('.text-center2');
 if (helloDiv !== null) {
 }
