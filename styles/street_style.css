@@ -340,9 +340,9 @@
       border: 2px solid black;
             border-radius: 5px;
       left: 50%;
-      color: #FFC30B;
+      color: #000000;
       transform: translateX(-50%);
-      background-color: #000000; /* Background image URL */
+      background-color: #ffc20bc8; /* Background image URL */
       background-size: cover; /* Adjusts the background image size */
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -430,6 +430,11 @@
       padding: 10px 20px;
       font-size: 20px;
       width: fit-content; /* This sets the width of the button to fit its content */
+    }
+    #save-score:hover {
+      background-color: #000000; /* Black background on hover */
+      color: #FFC30B; /* Yellow text color on hover */
+      border: 2px solid #FFC30B; /* Yellow border on hover */
     }
     #user-name {
       display: block;
