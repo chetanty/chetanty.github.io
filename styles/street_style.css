@@ -483,7 +483,54 @@
               top: 450px;
     
     }
-            
+    .custom-image {
+      width: 95px;
+      height: 95px;
+      pointer-events: none;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    #image1 {
+      top: 240px;
+      left: 10px;
+    }
+    
+    #image2 {
+      top: 240px;
+      left: 110px;
+    }
+    
+    #image3 {
+      top: 240px;
+      left: 210px;
+    }
+    #save-score {
+      font-family: "Rockwell", serif;
+      color: #000000;
+      text-align: center;
+      background-color: #FFC30B;
+      border: 2px solid black;
+      border-radius: 5px;
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 30px;
+      width: fit-content; /* This sets the width of the button to fit its content */
+    }
+    #user-name {
+      font-family: "Rockwell", serif;
+      font-size: 30px;
+
+    }
+    #score-table {
+
+      font-size: 30px;
+      top: 25%;
+
+    
+    }
+    
             #score {
               font-size: 60px;
       width: 300px;
@@ -516,7 +563,7 @@
     top: 212px;
     right:20px;}
     #toggle-high-scores{width: 315px;
-      height: 80px;
+      height: 120px;
       font-size: 40px;
     top: 300px;
     right:20px;}
