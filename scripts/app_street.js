@@ -103,7 +103,9 @@ async function updateHighScoreList() {
   }
 }
 
-
+let image1 = document.getElementById('image1');
+let image2 = document.getElementById('image2');
+let image3 = document.getElementById('image3');
 
 // Handle guess button click event
 const guessButton = document.getElementById('guess-button');
@@ -113,8 +115,11 @@ guessButton.addEventListener('click', async function () {
   if (marker === null) {
     return;
   }
+  if (guessCount >= 2) { // Check if guess count exceeds limit
+    guessButton.textContent = 'See the Answer';
+  }
   if (guessCount >= 3) { // Check if guess count exceeds limit
-    
+
     const arrowIcon = L.icon({
       iconUrl: '../styles/assets/result_marker.png', // Replace with the path to your select_marker.png
       iconSize: [65, 65], // Adjust the size of the arrow icon
@@ -156,6 +161,8 @@ guessButton.addEventListener('click', async function () {
         return;
       }
     }
+
+
     if (guessDistance < 50000) {
       endTime = Date.now();
       const timeTaken = (endTime - startTime) / 1000;
@@ -170,6 +177,13 @@ guessButton.addEventListener('click', async function () {
       playerScoreElement.textContent = playerScore;
     } else {
       resultText.push(`<strong>Distance from answer:</strong> ${guessDistance / 1000} kilometers. <strong>Your Guess:</strong> ${guessCity}, ${guessCountry}.`);
+      if (guessCount === 1) {
+        image1.style.display = 'none';
+      } else if (guessCount === 2) {
+        image2.style.display = 'none';
+      } else if (guessCount === 3) {
+        image3.style.display = 'none';
+      }
       if (initialLat.toFixed(4) !== 0.0000 && initialCity !== "" && initialCity !== "Unknown") {
       } else {
         // Fix the loop to properly fetch the data for initial coordinates
@@ -209,6 +223,11 @@ guessButton.addEventListener('click', async function () {
   }
 
 });
+function resetImages() {
+  image1.style.display = 'block';
+  image2.style.display = 'block';
+  image3.style.display = 'block';
+}
 function sanitizeInput(input) {
   // Replace '<' with '&lt;' and '&' with '&amp;'
   return input.replace(/</g, '&lt;').replace(/&/g, '&amp;');
@@ -416,18 +435,8 @@ saveScoreButton.addEventListener('click', async () => {
 
 
 function startNewGame() {
-// Remove all markers from the map
-map.eachLayer(function (layer) {
-  if (layer instanceof L.Marker) {
-    map.removeLayer(layer);
-  }
-});
+  resetImages();
 
-// Remove all images from the map
-const imageLayers = map.getPanes().overlayPane.getElementsByTagName('img');
-for (let i = imageLayers.length - 1; i >= 0; i--) {
-  map.getPanes().overlayPane.removeChild(imageLayers[i]);
-}
   guessCount=0
 startTime = 0;
 endTime = 0;
