@@ -436,6 +436,7 @@ saveScoreButton.addEventListener('click', async () => {
 
 function startNewGame() {
   resetImages();
+  guessButton.textContent = 'Guess City';
 
   guessCount=0
 startTime = 0;
