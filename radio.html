@@ -7,154 +7,125 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <style>
-  body {
+/* General styles */
+body {
     background-image: url('styles/assets/wp.jpg');
     background-repeat: no-repeat;
     background-position: center;
     margin: 0;
     padding: 0;
     text-align: center;
-
-  }
-  #radioPlayerContainer {
-    display: inline-block;
-    margin-top: 20px;
-  }
-  h1 {
+}
+h2{
     font-family: Helvetica;
-    font-size: 60px;
-    color: #FFC30B;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  }
-  h2 {
+    color: #000000;
+    text-shadow: -1px -1px 0 #FFC30B, 1px -1px 0 #FFC30B, -1px 1px 0 #FFC30B, 1px 1px 0 #FFC30B;
+}
+h1,
+h3 {
     font-family: Helvetica;
-    font-size: 30px;
     color: #FFC30B;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-  }
-  h3 {
-    font-family: Helvetica;
-    font-size: 20px;
-    color: #FFC30B;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  }
-  #channelName {
-    font-family: Helvetica;
-    font-size: 24px;
-    color: #000000;
-    margin-top: 10px;
-  }
-  .button {
+}
+
+#radioPlayerContainer {
+    display: inline-block;
+    margin-top: 20px;
+    width: 80%; /* Adjusted width */
+}
+
+#countryButtons {
+    margin-top: 20px;
+}
+
+/* Button styles */
+.button {
     background-color: #d9710f;
     border: none;
-    color: rgb(255, 255, 255);
+    color: #fff;
     padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 36px;
+    font-size: 18px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
-  }
-  .button:hover {
-    background-color: #331a05;
-  }
-
-  #radioNameContainer {
-  background-color: #FFC30B;
-  border-radius: 20px;
-  margin: 20px auto;
-  width: 80%;
 }
 
-#radioName {
-  font-family: Helvetica;
-  font-size: 36px;
-  color: #000000;
-  text-align: center;
-}
-
-#buttonContainer {
-  margin: 20px auto;
-  width: 80%;
-}
-
-.largeButton {
-  margin-top: 20px;
-  background-color: #FFC30B;
-  border: 5px solid black; /* Change the border style */
-  color: rgb(0, 0, 0);
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 10px;
-  cursor: pointer;
-  border-radius: 20px;
-  height: 100px;  
-}
-
-
-#buttonContainer {
-  display: flex;
-  justify-content: space-around; /* Horizontally align buttons */
-  align-items: center; /* Vertically align buttons */
-}
-
-#volumeButtonsContainer {
-  display: flex;
-  flex-direction: column; /* Align buttons vertically */
-  align-items: center; /* Center align items */
-}
-
-.smallButton {
-  margin-top: 10px; /* Adjust margin between buttons */
-  background-color: #FFC30B;
-  border: 5px solid black; /* Change the border style */
-  color: rgb(0, 0, 0);
-  padding: 15px 30px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 20px;
-  margin: 4px 10px;
-  cursor: pointer;
-  border-radius: 20px;
-}
-
-#controlsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 5px solid black;
-  border-radius: 20px;
-  padding: 0px; /* Adjusted padding */
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
+/* Channel Name styles */
 #channelBox {
-  background-color: #FFC30B;
-  border: 5px solid black;
-  border-radius: 20px;
-  margin-top: 20px;
-  padding: 15px 30px;
-  text-align: center;
-  width: 500px;
+    background-color: #FFC30B;
+    border: 5px solid black;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 15px;
+    text-align: center;
 }
 
 #channelName {
-  font-family: Helvetica;
-  font-size: 20px;
-  color: rgb(0, 0, 0);
+    font-family: Helvetica;
+    font-size: 16px;
+    color: #000;
 }
 
-#buttonContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* Control buttons container styles */
+#controlsContainer {
+    border: 5px solid black;
+    border-radius: 20px;
+    padding: 0px;
+    width: 30%; /* Adjusted width */
+    margin: 20px auto;
+}
+
+/* Control button styles */
+.largeButton,
+.smallButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: #FFC30B;
+}
+
+#volumeButtonsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 36px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    .button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    #channelBox {
+        padding: 10px;
+    }
+    #channelName {
+        font-size: 14px;
+    }
+    .largeButton,
+    .smallButton {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    #radioPlayerContainer {
+        width: 90%; /* Adjusted width for mobile */
+    }
+    #controlsContainer {
+        width: 90%; /* Adjusted width for mobile */
+    }
 }
 
 </style>
@@ -185,7 +156,7 @@
   <h2>LostLocale Radio</h2>
   <!-- Channel Name -->
   <div id="channelBox">
-    <span id="channelName">Channel Name</span>
+    <span id="channelName">-</span>
   </div>
 
   <!-- Buttons for controls -->
