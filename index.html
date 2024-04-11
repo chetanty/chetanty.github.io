@@ -14,6 +14,32 @@
 
   gtag('config', 'G-5QKCKQLMGD');
 </script>
+<script>
+  let cPressed = false;
+  let tPressed = false;
+
+  document.addEventListener('keydown', function(event) {
+      if (event.key === 'c') {
+          cPressed = true;
+      }
+      if (event.key === 't') {
+          tPressed = true;
+      }
+
+      if (cPressed && tPressed) {
+          window.location.href = 'Portfolio/portfolio.html';
+      }
+  });
+
+  document.addEventListener('keyup', function(event) {
+      if (event.key === 'c') {
+          cPressed = false;
+      }
+      if (event.key === 't') {
+          tPressed = false;
+      }
+  });
+</script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="title" content="Chetan Tyagi">
