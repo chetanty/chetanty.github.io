@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Radio Master</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <style>
   body {
-    background-color: #FFC30B;
+    background-image: url('styles/assets/wp.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
     text-align: center;
+
   }
   #radioPlayerContainer {
     display: inline-block;
@@ -16,18 +23,19 @@
   h1 {
     font-family: Helvetica;
     font-size: 60px;
-    color: #000000;
-  }
+    color: #FFC30B;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  }
   h2 {
     font-family: Helvetica;
     font-size: 30px;
-    color: #000000;
+    color: #FFC30B;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   }
   h3 {
     font-family: Helvetica;
     font-size: 20px;
-    color: #000000;
-  }
+    color: #FFC30B;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;  }
   #channelName {
     font-family: Helvetica;
     font-size: 24px;
@@ -37,12 +45,12 @@
   .button {
     background-color: #d9710f;
     border: none;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 36px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
@@ -50,10 +58,105 @@
   .button:hover {
     background-color: #331a05;
   }
-  #changeChannelButton {
-    margin-top: 20px;
-    background-color: #FFC30B;
-  }
+
+  #radioNameContainer {
+  background-color: #FFC30B;
+  border-radius: 20px;
+  margin: 20px auto;
+  width: 80%;
+}
+
+#radioName {
+  font-family: Helvetica;
+  font-size: 36px;
+  color: #000000;
+  text-align: center;
+}
+
+#buttonContainer {
+  margin: 20px auto;
+  width: 80%;
+}
+
+.largeButton {
+  margin-top: 20px;
+  background-color: #FFC30B;
+  border: 5px solid black; /* Change the border style */
+  color: rgb(0, 0, 0);
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 100px;  
+}
+
+
+#buttonContainer {
+  display: flex;
+  justify-content: space-around; /* Horizontally align buttons */
+  align-items: center; /* Vertically align buttons */
+}
+
+#volumeButtonsContainer {
+  display: flex;
+  flex-direction: column; /* Align buttons vertically */
+  align-items: center; /* Center align items */
+}
+
+.smallButton {
+  margin-top: 10px; /* Adjust margin between buttons */
+  background-color: #FFC30B;
+  border: 5px solid black; /* Change the border style */
+  color: rgb(0, 0, 0);
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 10px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#controlsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 5px solid black;
+  border-radius: 20px;
+  padding: 0px; /* Adjusted padding */
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#channelBox {
+  background-color: #FFC30B;
+  border: 5px solid black;
+  border-radius: 20px;
+  margin-top: 20px;
+  padding: 15px 30px;
+  text-align: center;
+  width: 500px;
+}
+
+#channelName {
+  font-family: Helvetica;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+
+#buttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 </style>
 <link rel="icon" href="styles/assets/c1.png" type="image/png">
 
@@ -61,7 +164,6 @@
 <body>
 
 <h1>Radio Master by CT</h1>
-<h2>For Lost Locale</h2>
 <h3>Select a country</h3>
 
 <!-- HTML Audio element to play radio stream -->
@@ -77,19 +179,30 @@
     <button class="button" onclick="playRadio('JP')">Japan</button>
     <button class="button" onclick="playRadio('IN')">India</button>
 </div>
-
+<br><br><br>
 <!-- Channel Name -->
-<div id="channelName"></div>
+<div id="controlsContainer">
+  <h2>LostLocale Radio</h2>
+  <!-- Channel Name -->
+  <div id="channelBox">
+    <span id="channelName">Channel Name</span>
+  </div>
 
-<!-- Button to change the channel -->
-<div id="changeChannelButton">
-    <button class="button" onclick="changeChannel()">Change Channel</button>
-    <!-- <button class="button" onclick="togglePauseResume()">Pause/Resume</button>-->
-    <button class="button" onclick="increaseVolume()">Increase Volume</button>
-    <button class="button" onclick="decreaseVolume()">Decrease Volume</button>
-    <button id="muteButton" class="button" onclick="toggleMute()">Mute</button>
-
+  <!-- Buttons for controls -->
+  <div id="buttonContainer">
+    <button id="changeChannelButton" class="largeButton" onclick="changeChannel()">Change Channel</button>
+    <button id="muteButton" class="smallButton" onclick="toggleMute()">
+      <i id="muteIcon" class="fas fa-volume-up"></i> <!-- Default volume-up icon -->
+    </button>
+<!-- Button to increase/decrease volume -->
+<div id="volumeButtonsContainer">
+  <button class="smallButton" onclick="increaseVolume()">+</button>
+  <button class="smallButton" onclick="decreaseVolume()">-</button>
 </div>
+
+  </div>
+</div>
+
 
 <script>
   let stationsData = null;
@@ -111,17 +224,21 @@
       throw error;
     }
   }
+  
 // Function to toggle mute/unmute
 // Function to toggle mute/unmute and update button label
 function toggleMute() {
   if (audio.muted) {
     audio.muted = false; // Unmute
-    document.getElementById('muteButton').innerText = "Mute";
+    document.getElementById('muteIcon').classList.remove('fa-volume-mute');
+    document.getElementById('muteIcon').classList.add('fa-volume-up');
   } else {
     audio.muted = true; // Mute
-    document.getElementById('muteButton').innerText = "Unmute";
+    document.getElementById('muteIcon').classList.remove('fa-volume-up');
+    document.getElementById('muteIcon').classList.add('fa-volume-mute');
   }
 }
+
 
 
   // Function to play radio stream for the selected country
