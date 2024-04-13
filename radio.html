@@ -203,7 +203,7 @@ async function fetchRadioStationsByCountryCode(countryCode, limit = 20, skip = 1
     const filteredStations = Array.from(xmlDoc.getElementsByTagName('station')).filter(station => {
       const attributes = ['name', 'url', 'tags', 'country', 'state'];
       for (const attribute of attributes) {
-        if (station.getAttribute(attribute) && /Islam|Quran|Muslim/i.test(station.getAttribute(attribute))) {
+        if (station.getAttribute(attribute) && /Islam|Quran|Quraan|Flop|Current|Muslim/i.test(station.getAttribute(attribute))) {
           return false; // Exclude stations with the specified keywords
         }
       }
@@ -294,35 +294,63 @@ function playCurrentStation() {
 }
 
   // Function to find a new station index
-  function findNewStationIndex() {
-    if (stationsData && stationsData.length > 0) {
-      // Randomly select a station excluding the previous station
-      let newStationIndex = Math.floor(Math.random() * stationsData.length);
-      if (stationsData.length > 1) {
-        while (newStationIndex === currentStationIndex) {
-          newStationIndex = Math.floor(Math.random() * stationsData.length);
-        }
-      }
-      return newStationIndex;
-    }
-    return -1;
+function findNewStationIndex() {
+  if (stationsData && stationsData.length > 0) {
+    // Randomly select a station
+    return Math.floor(Math.random() * stationsData.length);
   }
+  return -1;
+}
 
   // Function to change the channel
-  function changeChannel() {
-  if (stationsData && stationsData.length > 0 && currentStationIndex !== -1) {
+// Function to change the channel
+// Function to change the channel
+// Flag to track whether a channel change process is in progress
+let changingChannel = false;
+
+// Function to change the channel
+async function changeChannel(retries = 3) {
+  if (changingChannel || !stationsData || stationsData.length === 0 || currentStationIndex === -1) {
+    // If a channel change is already in progress or stations data is not available, exit
+    return;
+  }
+
+  // Set the flag to indicate that a channel change process is starting
+  changingChannel = true;
+
+  try {
     // Pause the audio before changing channels
     if (!audio.paused) {
       audio.pause();
     }
 
     // Wait for a short delay before changing the channel
-    setTimeout(() => {
-      currentStationIndex = (currentStationIndex + 1) % stationsData.length; // Cycle through stations
-      playCurrentStation();
-    }, 500); // Adjust the delay time as needed
+    setTimeout(async () => {
+      try {
+        currentStationIndex = (currentStationIndex + 1) % stationsData.length; // Cycle through stations
+        await playCurrentStation(); // Attempt to play the new station
+      } catch (error) {
+        console.error('Error changing channel:', error);
+        if (retries > 0) {
+          // Retry after a delay with decreased number of retries
+          setTimeout(() => changeChannel(retries - 1), 100); // Retry after 1 second
+        } else {
+          console.error('Max retries reached. Giving up.');
+        }
+      } finally {
+        // Reset the flag once the channel change process is complete
+        changingChannel = false;
+      }
+    }, 50); // Adjust the delay time as needed
+  } catch (error) {
+    console.error('Error initiating channel change:', error);
+    // Reset the flag if an error occurs during the channel change process
+    changingChannel = false;
   }
 }
+
+
+
 
   // Function to toggle pause/resume
   function togglePauseResume() {
