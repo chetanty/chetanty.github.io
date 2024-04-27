@@ -1,140 +1,194 @@
-<!-- Chetan Tyagi --> 
-<!-- 2 August 2023 --> 
+<!-- Chetan Tyagi -->
+<!-- 2 August 2023 -->
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="styles/street_style.css">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-NN9E898FSX"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+      gtag("config", "G-NN9E898FSX");
+    </script>
+    <link rel="stylesheet" href="styles/street_style.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" >
 
     <script src="https://unpkg.com/mapillary-js@4.1.1/dist/mapillary.js"></script>
     <link
       href="https://unpkg.com/mapillary-js@4.1.1/dist/mapillary.css"
       rel="stylesheet"
     />
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QKCKQLMGD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-5QKCKQLMGD');
-</script>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="title" content="Chetan Tyagi">
-<meta property="og:title" content="Chetan Tyagi">
-<meta name="url" content="https://chetantyagi.me">
-<meta property="og:url" content="https://chetantyagi.me">
-<meta name="description" content="Map Master">
-<meta propert="og:description" content="Click on Show Map to Guess the City">
-<link rel="canonical" href="https://chetantyagi.me/">
-    <link rel="icon" type="image/png" href="styles/assets/M1.png">
-    <meta charset="utf-8">
-    <title>Map Master</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="title" content="Chetan Tyagi" />
+    <meta property="og:title" content="Chetan Tyagi" />
+    <meta name="url" content="https://chetantyagi.me" />
+    <meta property="og:url" content="https://chetantyagi.me" />
+    <meta name="description" content="Map Master" />
+    <meta
+      propert="og:description"
+      content="Click on Show Map to Guess the City"
+    />
+    <link rel="canonical" href="https://chetantyagi.me/" />
+    <link rel="icon" type="image/png" href="styles/assets/c2.png" />
+    <meta charset="utf-8" />
+    <title>Lost Locale Singleplayer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+  </head>
+  <body>
+    <a href="index.html" class="custom-button"></a>
+    <img
+      id="image1"
+      class="custom-image"
+      src="styles/assets/life_full.png"
+      alt="Image 1"
+    />
+    <img
+      id="image2"
+      class="custom-image"
+      src="styles/assets/life_full.png"
+      alt="Image 2"
+    />
+    <img
+      id="image3"
+      class="custom-image"
+      src="styles/assets/life_full.png"
+      alt="Image 3"
+    />
+    <img
+      id="image4"
+      class="custom-image2"
+      src="styles/assets/life_empty.png"
+      alt="Image 1_neg"
+    />
+    <img
+      id="image5"
+      class="custom-image2"
+      src="styles/assets/life_empty.png"
+      alt="Image 2_neg"
+    />
+    <img
+      id="image6"
+      class="custom-image2"
+      src="styles/assets/life_empty.png"
+      alt="Image 3_neg"
+    />
 
-</head>
-<body>
+    <div id="loading">Loading the coordinates...</div>
+    <p id="timer">
+      Time Elapsed:<br />
+      0 seconds
+    </p>
+    <div class="yellow-border2" id="result"></div>
+    <div class="text-center2">Click on Show Map to Guess the City</div>
+    <div class="text-center3">
+      <input type="checkbox" id="show-coordinates" />
+      <label for="show-coordinates"></label>
+    </div>
+    <div class="radio-container">
+      <div class="radio-player">
+          <audio id="radioPlayer" >
+              <!-- Add radio stream URL here -->
+              Your browser does not support the audio element.
+          </audio>
+          <button id="muteButton" onclick="toggleMute()">
+            <i id="muteIcon" class="fas fa-volume-up"></i> <!-- Default volume-up icon -->
+          </button>
+          
+          <button onclick="increaseVolume()">+</button>
+          <button onclick="decreaseVolume()">-</button>
+          <button onclick="changeChannel()">Change Channel</button>
 
-  <a href="index.html" class="custom-button">Map Master</a>
-  <img id="image1" class="custom-image" src="styles/assets/life_full.png" alt="Image 1">
-  <img id="image2" class="custom-image" src="styles/assets/life_full.png" alt="Image 2">
-  <img id="image3" class="custom-image" src="styles/assets/life_full.png" alt="Image 3">
-  <img id="image4" class="custom-image2" src="styles/assets/life_empty.png" alt="Image 1_neg">
-  <img id="image5" class="custom-image2" src="styles/assets/life_empty.png" alt="Image 2_neg">
-  <img id="image6" class="custom-image2" src="styles/assets/life_empty.png" alt="Image 3_neg">
-  
-  <div id="loading">Loading the coordinates...</div>
-  <p id="timer">Time Elapsed:<br> 0 seconds</p>
-  <div class="yellow-border2" id="result"></div>
-  <div class="text-center2">Click on Show Map to Guess the City</div>
-  <div class="text-center3">
-    <input type="checkbox" id="show-coordinates">
-    <label for="show-coordinates"></label>
-    
+      </div>
   </div>
+    <!-- <button id="new-game-button" onclick="startNewGame()">New Game</button>-->
+    <button id="new-game-button" onclick="startNewGame()">New Game</button>
+    <button id="toggle-high-scores" onclick="toggleHighScores()">
+      Leaderboard
+    </button>
+    <div class="button-container">
+      <button id="toggle-map" onclick="toggleMap()"><b>Show Map</b></button>
+      <button id="guess-button" class="button">Guess City</button>
+    </div>
+    <div id="map">
+      <!-- Your map content goes here -->
+    </div>
 
- <!-- <button id="new-game-button" onclick="startNewGame()">New Game</button>-->
- <button id="new-game-button" onclick="startNewGame()">New Game</button>
- <button id="toggle-high-scores" onclick="toggleHighScores()">High Scores</button>
- <div class="button-container">
-  <button id="toggle-map" onclick="toggleMap()"><b>Show Map</b></button>
-  <button id="guess-button" class="button">Guess City</button>
-</div>
-  <div id="map">
-    <!-- Your map content goes here -->
+    <div id="score-table">
+      <div id="close-icon">✖</div>
+      <h2>Leaderboard</h2>
+      <ol id="high-score-list"></ol>
 
-  </div>
+      <input type="text" id="user-name" placeholder="Your Name" />
+      <div id="submitted-message" style="display: none">Submitted!</div>
+      <button id="save-score">Save Score</button>
+    </div>
 
-  <div id="score-table">
-    <h2>Leaderboard</h2>
-    <ol id="high-score-list">
-      <!-- High scores will be added here dynamically -->
-    </ol>
-
-    <input type="text" id="user-name" placeholder="Your Name">
-    <div id="submitted-message" style="display: none;">Submitted!</div>
-    <button id="save-score">Save Score</button>
-  </div>
-  
-  
-  <div id="score">
+    <div id="score">
       <strong>Score:</strong> <span id="player-score">0</span>
-  </div>
-  <div id="mly" ></div>
+    </div>
+    <div id="mly"></div>
 
-
-
-
-
-  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
-  <script src="scripts/app_street.js"></script>
-  <script>
-    function toggleFullScreen() {
-      const mapElement = document.getElementById("map");
-      if (document.fullscreenElement) {
-        document.exitFullscreen();
-      } else {
-        mapElement.requestFullscreen();
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <script src="scripts/app_street.js"></script>
+    <script>
+      function toggleFullScreen() {
+        const mapElement = document.getElementById("map");
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          mapElement.requestFullscreen();
+        }
       }
-    }
-  </script>
-  <script>document.addEventListener("keydown", function (event){
-    if (event.ctrlKey){
-       event.preventDefault();
-    }
-    if(event.keyCode == 123){
-       event.preventDefault();
-    }
-});
+    </script>
+    <script>
+      document.addEventListener("keydown", function (event) {
+        if (event.ctrlKey) {
+          event.preventDefault();
+        }
+        if (event.keyCode == 123) {
+          event.preventDefault();
+        }
+      });
 
-document.addEventListener('contextmenu', 
-     event => event.preventDefault()
-);</script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
-<script>
-  var firebaseConfig = {
-    apiKey: "AIzaSyChoaveV-HaY_UaUUWFZz_AXWEyMYLxxU0",
-    authDomain: "map-master-ct.firebaseapp.com",
-    projectId: "map-master-ct",
-    storageBucket: "map-master-ct.appspot.com",
-    messagingSenderId: "888074293036",
-    appId: "1:888074293036:web:afb52990c3ab21a29f6689",
-    measurementId: "G-BTVPV92CX8"
-  };
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+    </script>
 
-  // Initialize Firestore
-  var db = firebase.firestore();
-</script>
-
-</body>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-firestore.js"></script>
+    <script>
+      // Fetch Firebase config and initialize Firebase
+      fetch("/firebase-config")
+        .then((response) => response.json())
+        .then((firebaseConfig) => {
+          firebase.initializeApp(firebaseConfig);
+          // Initialize Firestore and assign to a global variable
+          window.db = firebase.firestore();
+          // Now db is accessible globally
+        })
+        .catch((error) => {
+          console.error("Error fetching Firebase config:", error);
+        });
+    </script>
+  </body>
 </html>
