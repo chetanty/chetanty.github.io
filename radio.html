@@ -203,7 +203,7 @@ async function fetchRadioStationsByCountryCode(countryCode, limit = 20, skip = 1
     const filteredStations = Array.from(xmlDoc.getElementsByTagName('station')).filter(station => {
       const attributes = ['name', 'url', 'tags', 'country', 'state'];
       for (const attribute of attributes) {
-        if (station.getAttribute(attribute) && /Islam|qur|Quran|Quraan|Flop|Current|zeno|kltr|Muslim//i.test(station.getAttribute(attribute))) {
+        if (station.getAttribute(attribute) && /Islam|qur|Quran|Quraan|Flop|Current|zeno|kltr|Muslim/i.test(station.getAttribute(attribute))) {
           return false; // Exclude stations with the specified keywords
         }
       }
