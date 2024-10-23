@@ -34,7 +34,7 @@ border: 2px solid #FFC30B;
 }
 
 .custom-button::before {
-font-size: 10px;
+font-size: 15px;
 
 content: "[Change Theme]";
 position: absolute;
@@ -69,8 +69,8 @@ position: relative;
 }
 
 .custom-button3::before {
-    font-size: 10px;
-    content: "[See Me Here]";
+    font-size: 15px;
+    content: "[Resume]";
     position: absolute;
     bottom: 5px; /* Adjust the distance from the bottom as needed */
     right: 5px; /* Adjust the distance from the right as needed */
@@ -292,4 +292,3 @@ left: 0%;
 z-index: 2;
 }
 }
-
