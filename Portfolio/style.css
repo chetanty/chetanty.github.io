@@ -5,6 +5,8 @@ body {
     margin-left: 200px; /* Add margin here */
     margin-right: 120px; /* Add margin here */
     margin-top: 40px; /* Add margin here */
+    font-size: 23px;
+
 }
 .custom-button {
 font-size: 30px;
