@@ -278,7 +278,7 @@ height: auto;
         border: none;
         border-radius: 10px; /* Rounded corners */
         background-color: #000000; /* Dark mode background color */
-        color: #27200d; /* Text color */
+        color: #FFC30B; /* Text color */
         font-size: 50px; /* Increase icon size */
         cursor: pointer;
         z-index: 1000; /* Make sure it's above other content */
@@ -345,6 +345,9 @@ z-index: 2;
 h3 {
     font-size: 2em; /* Adjust this to match h1 size */
     font-weight: bold;}
+    h3 {
+        font-size: 2em; /* Adjust this to match h1 size */
+        font-weight: bold;}
 
 .skill-icon i {
     font-size: 70px; /* Bigger icons */
