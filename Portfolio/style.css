@@ -1,6 +1,6 @@
 
 body {
-    background-color: #faf6ea;
+    background-color: #fefefe;
     font-family: "Rockwell", serif;
     margin-left: 200px; /* Add margin here */
     margin-right: 120px; /* Add margin here */
@@ -36,7 +36,7 @@ border: 2px solid #FFC30B;
 .custom-button::before {
 font-size: 15px;
 
-content: "[Change Theme]";
+content: "[See my Resume]";
 position: absolute;
 bottom: 5px; /* Adjust the distance from the bottom as needed */
 right: 5px; /* Adjust the distance from the right as needed */
@@ -249,8 +249,47 @@ display: block;
 max-width: 100%;
 height: auto;
 }
-@media (max-width: 1000px) {
+.dark-mode-button {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom */
+    right: 20px; /* Distance from the right */
+    width: 60px; /* Width of the button */
+    height: 60px; /* Height of the button */
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    background-color: #000000; /* Default background color */
+    color: #FFC30B; /* Default text color */
+    font-size: 30px; /* Icon size */
+    cursor: pointer;
+    z-index: 1000; /* Make sure it's above other content */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
 
+
+
+
+@media (max-width: 1000px) {
+    .dark-mode-button {
+        position: fixed;
+        bottom: 20px; /* Distance from the bottom */
+        right: 20px; /* Distance from the right */
+        width: 160px; /* Width of the button */
+        height: 160px; /* Height of the button */
+        border: none;
+        border-radius: 10px; /* Rounded corners */
+        background-color: #000000; /* Dark mode background color */
+        color: #FFC30B; /* Text color */
+        font-size: 50px; /* Increase icon size */
+        cursor: pointer;
+        z-index: 1000; /* Make sure it's above other content */
+        transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        display: flex; /* Use flexbox for centering */
+        align-items: center; /* Center icon vertically */
+        justify-content: center; /* Center icon horizontally */
+    }
+    
+
+    
     .custom-button{font-size: 60px;
     height: 200px;
     }
@@ -290,5 +329,29 @@ position: fixed;
 top: 23%;
 left: 0%;
 z-index: 2;
+}
+
+.skill-box {
+    font-size: 70px; /* Bigger icons */
+
+    border: 2px solid #000000; /* Black border */
+    border-radius: 10px;
+    padding: 25px; /* Increased padding */
+    margin: 15px; /* More space between boxes */
+    background-color: #f8f8f8; /* Light background for better contrast */
+}
+
+h3 {
+    font-size: 2em; /* Adjust this to match h1 size */
+    font-weight: bold;}
+
+.skill-icon i {
+    font-size: 70px; /* Bigger icons */
+    margin-right: 15px; /* More spacing */
+}
+
+.skill-icon p {
+    font-size: 42px; /* Bigger text */
+    margin: 10px;
 }
 }
