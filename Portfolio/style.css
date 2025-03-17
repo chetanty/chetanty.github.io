@@ -291,6 +291,7 @@ height: auto;
 
     
     .custom-button{font-size: 60px;
+        margin-top:1%;
     height: 200px;
     }
     .custom-button::before{font-size: 26px;}
