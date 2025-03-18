@@ -253,13 +253,13 @@ height: auto;
 .dark-mode-button {
     position: fixed;
     bottom: 20px; /* Distance from the bottom */
-    right: 20px; /* Distance from the right */
-    width: 60px; /* Width of the button */
+    right: 20px; 
+    width: 60px; 
     height: 60px; /* Height of the button */
     border: none;
-    border-radius: 10px; /* Rounded corners */
-    color: #FFC30B; /* Default text color */
-    font-size: 30px; /* Icon size */
+    border-radius: 10px; 
+    color: #69d0ff; 
+    font-size: 30px; 
     cursor: pointer;
     z-index: 1000; /* Make sure it's above other content */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
