@@ -17,7 +17,7 @@ function toggleButtonColor() {
       body.style.backgroundColor = "#211e1e";
       body.style.color = "#e2e2e2";
 
-      darkModeButton.style.backgroundColor = "#69d0ff"; 
+      darkModeButton.style.backgroundColor = "#2bb3a5"; 
 
       darkModeButton.style.color = "#000"; 
       menu.style.backgroundColor = "#6d6e71"; 
