@@ -74,11 +74,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="title" content="Chetan Tyagi">
 <meta property="og:title" content="Chetan Tyagi">
-<meta name="url" content="https://chetantyagi.me">
-<meta property="og:url" content="https://chetantyagi.me">
+<meta name="url" content="https://chetantyagi.com">
+<meta property="og:url" content="https://chetantyagi.com">
 <meta name="description" content="portfolio">
 <meta propert="og:description" content="Select a point on land and click on Guess to Begin">
-<link rel="canonical" href="https://chetantyagi.me/">
+<link rel="canonical" href="https://chetantyagi.com/">
     <link rel="icon" type="image/png" href="styles/assets/M1.png">
     <meta charset="utf-8">
     <title>Website of Chetan Tyagi</title>
@@ -86,7 +86,7 @@
     
     <style>
         body {
-            background-color: #faf6ea;
+            background-color: #fefefe;
             font-family: "Georgia", serif;
             display: flex;
             flex-direction: column;
@@ -98,6 +98,7 @@
         .container {
             display: flex;
             align-items: center;
+            
         }
 
         .line {
@@ -105,20 +106,22 @@
             justify-content: center;
             align-items: center;
             width: 100%;
+            
         }
 
         .left-panel, .right-panel {
             text-align: center;
             flex: 1;
             padding: 20px;
+            
         }
 
         .left-panel {
-            border-right: 2px solid #000; /* Add a border on the right for separation */
+            border-right: 2px solid #8d8b8b; /* Add a border on the right for separation */
         }
 
         .heading, .heading2 {
-            font-size: 30px;
+            font-size: 40px;
             font-family: "Georgia", serif;
             font-weight: bold; /* Make the headings bold */
         }
@@ -126,7 +129,7 @@
         .button {
           opacity: 0.9;
 
-            font-size: 20px;
+            font-size: 25px;
             font-family: 'Georgia', cursive;
             display: inline-flex;
             justify-content: center;
@@ -137,9 +140,9 @@
             text-decoration: none;
             font-weight: bold;
             border: 2px solid #000000;
-            border-radius: 15px;
+            border-radius: 8px;
             width: 100%;
-            height: 50px;
+            height: 70px;
             cursor: pointer;
             position: relative;
             margin: 4px 0; /* Add margin to separate buttons vertically */
@@ -186,12 +189,28 @@
   z-index: -5;
 }
 h1 {
-        font-size: 80px; /* Adjust heading size for smaller screens */
+        font-size: 90px; /* Adjust heading size for smaller screens */
       }
       .f1 {
         font-size: 80px; /* Adjust heading size for smaller screens */
         color: blue;
       }
+
+        .dark-mode-button {
+        position: fixed;
+        bottom: 20px; /* Distance from the bottom */
+        right: 20px; /* Distance from the right */
+        width: 60px; /* Width of the button */
+        height: 60px; /* Height of the button */
+        border: none;
+        border-radius: 10px; /* Rounded corners */
+        color: #FFC30B; /* Default text color */
+        font-size: 30px; /* Icon size */
+        cursor: pointer;
+        z-index: 1000; /* Make sure it's above other content */
+        transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        background-color: #000000; /* Default background color */
+}
 @media only screen and (min-width: 300px) and (max-width: 980px) {
       h1 {
         font-size: 100px; /* Adjust heading size for smaller screens */
@@ -205,8 +224,24 @@ h1 {
         font-size: 60px; /* Decrease button font size for smaller screens */
         padding: 8px 16px; /* Adjust button padding */
         height: 100px;
-
       }
+      .dark-mode-button {
+        position: fixed;
+        bottom: 20px; /* Distance from the bottom */
+        right: 20px; /* Distance from the right */
+        width: 160px; /* Width of the button */
+        height: 160px; /* Height of the button */
+        border: none;
+        border-radius: 10px; /* Rounded corners */
+        color: #FFC30B; /* Text color */
+        font-size: 50px; /* Increase icon size */
+        cursor: pointer;
+        z-index: 1000; /* Make sure it's above other content */
+        transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+        display: flex; /* Use flexbox for centering */
+        align-items: center; /* Center icon vertically */
+        justify-content: center; /* Center icon horizontally */
+    }
       .button2 {
         font-size: 20px; /* Decrease button font size for smaller screens */
         padding: 8px 16px; /* Adjust button padding */
@@ -240,8 +275,33 @@ h1 {
     </style>
 </head>
 <body>
+  <script>
+    let darkMode = false;
+    function toggleButtonColor() {
+        const body = document.body;
+        const darkModeButton = document.getElementById("darkModeToggle");
 
-  <h1 style="font-family: 'Georgia', cursive;">Website of<br><span style="color: rgb(0, 0, 127);">Chetan Tyagi</span></h1>
+        darkMode = !darkMode;
+        if (darkMode) {
+            darkModeButton.innerHTML = "☀️";
+            body.style.backgroundColor = "#211e1e";
+            body.style.color = "#e2e2e2";
+            darkModeButton.style.backgroundColor = "#FFC30B";
+            darkModeButton.style.color = "#000";
+        } else {
+            darkModeButton.innerHTML = "🌙";
+            body.style.backgroundColor = "#fefefe";
+            body.style.color = "#000000";
+            darkModeButton.style.backgroundColor = "#000";
+            darkModeButton.style.color = "#FFF";
+        }
+    }
+</script>
+        
+<button id="darkModeToggle" class="dark-mode-button" onclick="toggleButtonColor()">
+  🌙
+</button>
+  <h1 style="font-family: 'Georgia', cursive;">Website of<br><span style="color: rgb(85, 85, 227);">Chetan Tyagi</span></h1>
   <div class="container">
     <div class="line">
       <div class="left-panel">
