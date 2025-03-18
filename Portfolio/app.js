@@ -4,7 +4,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-let buttonColor = 0; // 0 for initial colors, 1 for swapped colors
+let buttonColor = 0;
 let fontReversed = false;
 
 function toggleButtonColor() {
@@ -17,7 +17,7 @@ function toggleButtonColor() {
       body.style.backgroundColor = "#211e1e";
       body.style.color = "#e2e2e2";
 
-      darkModeButton.style.backgroundColor = "#FFC30B"; 
+      darkModeButton.style.backgroundColor = "#69d0ff"; 
 
       darkModeButton.style.color = "#000"; 
       menu.style.backgroundColor = "#6d6e71"; 
