@@ -14,8 +14,8 @@ function toggleButtonColor() {
 
   if (buttonColor === 0) {
       darkModeButton.innerHTML = "☀️"; 
-      body.style.backgroundColor = "#3e424b";
-      body.style.color = "#FFC30B";
+      body.style.backgroundColor = "#211e1e";
+      body.style.color = "#e2e2e2";
 
       darkModeButton.style.backgroundColor = "#FFC30B"; 
 
@@ -42,3 +42,4 @@ function openResume() {
   // Open the resume in a new tab
   window.open(resumeURL, '_blank');
 }
+
