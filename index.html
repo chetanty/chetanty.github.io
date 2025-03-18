@@ -79,7 +79,7 @@
 <meta name="description" content="portfolio">
 <meta propert="og:description" content="Select a point on land and click on Guess to Begin">
 <link rel="canonical" href="https://chetantyagi.com/">
-    <link rel="icon" type="image/png" href="styles/assets/C1.png">
+    <link rel="icon" type="image/png" href="styles/assets/M1.png">
     <meta charset="utf-8">
     <title>Website of Chetan Tyagi</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
@@ -117,7 +117,7 @@
         }
 
         .left-panel {
-            border-right: 2px solid #8d8b8b; /* Add a border on the right for separation */
+            border-right: 2px solid #23cfff; /* Add a border on the right for separation */
         }
 
         .heading, .heading2 {
@@ -179,15 +179,7 @@
             color: #FFC30B;
             border: 2px solid #FFC30B;
         }
-        .globe-image {
-  width: 1000px;
-  height: 500px;
-  position: fixed;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Center it precisely */
-  z-index: -5;
-}
+
 h1 {
         font-size: 90px; /* Adjust heading size for smaller screens */
       }
@@ -197,20 +189,20 @@ h1 {
       }
 
         .dark-mode-button {
-        position: fixed;
-        bottom: 20px; /* Distance from the bottom */
-        right: 20px; /* Distance from the right */
-        width: 60px; /* Width of the button */
-        height: 60px; /* Height of the button */
-        border: none;
-        border-radius: 10px; /* Rounded corners */
-        color: #FFC30B; /* Default text color */
-        font-size: 30px; /* Icon size */
-        cursor: pointer;
-        z-index: 1000; /* Make sure it's above other content */
-        transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-        background-color: #000000; /* Default background color */
-}
+          position: fixed;
+          bottom: 20px; /* Distance from the bottom */
+          right: 20px; /* Distance from the right */
+          width: 60px; /* Width of the button */
+          height: 60px; /* Height of the button */
+          border: none;
+          border-radius: 10px; /* Rounded corners */
+          color: #FFC30B; /* Default text color */
+          font-size: 30px; /* Icon size */
+          cursor: pointer;
+          z-index: 1000; /* Make sure it's above other content */
+          transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+          background-color: #000000; /* Default background color */
+  }
 @media (max-width: 1000px) {
       h1 {
         font-size: 100px; /* Adjust heading size for smaller screens */
@@ -255,6 +247,7 @@ h1 {
 
   .left-panel, .right-panel {
     border-right: none; /* Remove border between panels on mobile */
+    
   }
 
   .heading {
@@ -270,6 +263,7 @@ h1 {
     width: 100%;
     height: 1px;
     background-color: #000; /* Horizontal line color */
+    
   }
     }
     </style>
@@ -286,7 +280,7 @@ h1 {
             darkModeButton.innerHTML = "☀️";
             body.style.backgroundColor = "#211e1e";
             body.style.color = "#e2e2e2";
-            darkModeButton.style.backgroundColor = "#FFC30B";
+            darkModeButton.style.backgroundColor = "#69d0ff";
             darkModeButton.style.color = "#000";
         } else {
             darkModeButton.innerHTML = "🌙";
