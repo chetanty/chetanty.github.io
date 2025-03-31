@@ -27,13 +27,13 @@ height: 50px;
 cursor: pointer;
 position: relative;
 }
-
+/*
 .custom-button:hover {
 background-color: #000000;
 color: #FFC30B;
 border: 2px solid #FFC30B;
 }
-
+*/
 .custom-button::before {
 font-size: 15px;
 
@@ -76,11 +76,11 @@ position: relative;
     bottom: 5px; /* Adjust the distance from the bottom as needed */
     right: 5px; /* Adjust the distance from the right as needed */
 }
-.custom-button3:hover {
+/*.custom-button3:hover {
     background-color: #000000;
     color: #FFC30B;
     border: 2px solid #FFC30B;
-}
+}*/
 .custom-button2 {
 font-size: 20px;
 display: flex;
@@ -95,12 +95,12 @@ border-radius: 5px;
 cursor: pointer;
 text-align: center;
 }
-
+/*
 .custom-button2:hover {
     background-color: #000000;
     color: #FFC30B;
     border: 2px solid #FFC30B;
-}
+}*/
 
 
 .custom-button4 {
@@ -117,12 +117,13 @@ border-radius: 5px;
 cursor: pointer;
 text-align: center;
 }
+/*
 .custom-button4:hover {
     background-color: #000000;
     color: #FFC30B;
     border: 2px solid #FFC30B;
 }
-
+*/
 /* Style the navigation menu */
 #menu {
     position: fixed; /* Make the menu stay fixed */
@@ -154,13 +155,13 @@ justify-content: center; /* Center the text horizontally */
 align-items: center; /* Center the text vertically */
 
 }
-
+/* 
 #menu a:hover {
 background-color: #000000;
 color: #FFC30B;
 border-radius: 5px;
 }
-
+*/
 .skill-icons {
 display: flex;
 flex-wrap: wrap;
@@ -258,8 +259,8 @@ height: auto;
     height: 60px; /* Height of the button */
     border: none;
     border-radius: 10px; 
-    color: #69d0ff; 
-    font-size: 30px; 
+    color: #FFC30B; 
+    font-size: 30px; /* Icon size */
     cursor: pointer;
     z-index: 1000; /* Make sure it's above other content */
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
