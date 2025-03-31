@@ -17,8 +17,10 @@ function toggleButtonColor() {
       body.style.backgroundColor = "#211e1e";
       body.style.color = "#e2e2e2";
 
+      nameToggle.style.backgroundColor = "#000";
+      nameToggle.style.color = "#FFC30B";
+      nameToggle.style.border = "2px solid #ffc308"; 
       darkModeButton.style.backgroundColor = "#2bb3a5"; 
-
       darkModeButton.style.color = "#000"; 
       menu.style.backgroundColor = "#6d6e71"; 
       menu.style.color = "#FFC30B"; 
@@ -27,7 +29,11 @@ function toggleButtonColor() {
     darkModeButton.innerHTML = "🌙"; 
       body.style.backgroundColor = "#fefefe";
       body.style.color = "#000000";
-
+      
+      nameToggle.style.backgroundColor = "#FFC30B";
+      nameToggle.style.color = "#000";
+      nameToggle.style.border = "2px solid #ffc308"; 
+      nameToggle.style.border = "2px solidrgb(0, 0, 0)"; 
       darkModeButton.style.backgroundColor = "#000"; 
       darkModeButton.style.color = "#FFF"; 
       menu.style.backgroundColor = "#dfdcd5"; 
