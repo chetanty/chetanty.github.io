@@ -8,6 +8,10 @@ body {
     font-size: 23px;
 
 }
+a {
+    text-decoration: none;
+    color: #0070e0;
+    }
 
 .custom-button {
 font-size: 30px;
@@ -212,9 +216,10 @@ font-weight: bold;
 }
 
 .project a {
-text-decoration: none;
-color: #0070e0;
-}
+    text-decoration: none;
+    color: #0070e0;
+    }
+    
 
 .project a:hover {
 text-decoration: underline;
